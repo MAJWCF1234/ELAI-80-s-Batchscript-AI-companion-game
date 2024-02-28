@@ -1,0 +1,417 @@
+YES NO CONVERSATION MODULE
+
+:letstalkaboutexample
+cls
+echo Module Title
+echo Description of the module and its importance.
+pause
+goto section1_label_m0000000
+
+:section1_label_m0000000
+cls
+echo Section 1 Title
+echo Section 1 content.
+echo Question to prompt user interaction.
+set /p response=
+if /i "%response%"=="yes" goto section2_label_m0000000
+if /i "%response%"=="no" goto section2_label_m0000000
+
+:section2_label_m0000000
+cls
+echo Section 2 Title
+echo Section 2 content.
+echo Question to prompt user interaction.
+set /p response=
+if /i "%response%"=="yes" goto section3_label_m0000000
+if /i "%response%"=="no" goto section4_label_m0000000
+
+:section3_label_m0000000
+cls
+echo Section 3 Title
+echo Section 3 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto section4_label_m0000000
+
+:section4_label_m0000000
+cls
+echo Section 4 Title
+echo Section 4 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto section5_label_m0000000
+
+:section5_label_m0000000
+cls
+echo Section 5 Title
+echo Section 5 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto end_module_m0000000
+
+:end_module_m0000000
+cls
+echo Conclusion and final thoughts.
+goto hey
+SHORT OPENENDED CONVERSATION MODULE 
+
+:possibleinput1
+:possibleinput2
+:possibleinput3
+:possibleinput4
+:possibleinput5
+:possibleinput6
+:possibleinput7
+:possibleinput8
+
+setlocal enabledelayedexpansion
+set string[0]=Response 1?         :: Define Response 1
+set string[1]=Response 2?         :: Define Response 2
+set string[2]=Response 3?         :: Define Response 3
+set /a idx=%random% %%3          :: Generate a random number between 0 and 2 and store it in idx
+echo !string[%idx%]!             :: Echo the response corresponding to the random index
+set /p reply=                    :: Prompt the user for a reply
+goto respondtoX_m0000000         :: Go to the response section based on the index
+
+:respondtoX_m0000000
+if "%idx%"=="0" goto respondtoX0_m0000000   :: If idx is 0, go to the response section for Response 1
+if "%idx%"=="1" goto respondtoX1_m0000000   :: If idx is 1, go to the response section for Response 2
+if "%idx%"=="2" goto respondtoX2_m0000000   :: If idx is 2, go to the response section for Response 3
+
+:respondtoX0_m0000000
+echo Reply to Response 1.       :: Perform the response for Response 1
+set /p reply=                    :: Prompt the user for a reply
+goto continuechatX_m0000000      :: Continue the conversation
+
+:respondtoX1_m0000000
+echo Reply to Response 2.       :: Perform the response for Response 2
+set /p reply=                    :: Prompt the user for a reply
+goto continuechatX_m0000000      :: Continue the conversation
+
+:respondtoX2_m0000000
+echo Reply to Response 3.       :: Perform the response for Response 3
+set /p reply=                    :: Prompt the user for a reply
+goto continuechatX_m0000000      :: Continue the conversation
+
+:continuechatX_m0000000
+echo Open-ended question to continue the conversation?   :: Ask an open-ended question to continue the conversation
+set /p reply=                    :: Prompt the user for a reply
+exit /B 0                        :: Exit the module
+ 
+MAJWCF1234 — 05/18/2023 11:38 AM
+Conversation module 3 
+:whatusertypes
+cls
+echo Initial content based on what the user typed.
+echo Question to prompt user interaction.
+set /p response=
+if /i "%response%"=="yes" goto yeslabel_m0000000
+if /i "%response%"=="no" goto nolabel_m0000000
+
+:yeslabel_m0000000
+cls
+echo Content for yes response.
+echo Question to prompt further interaction.
+set /p response=
+if /i "%response%"=="yes" goto yesyeslabel_m0000000
+if /i "%response%"=="no" goto yesnolabel_m0000000
+
+:nolabel_m0000000
+cls
+echo Content for no response.
+echo Question to prompt further interaction.
+set /p response=
+if /i "%response%"=="yes" goto noyeslabel_m0000000
+if /i "%response%"=="no" goto nonolabel_m0000000
+
+:yesyeslabel_m0000000
+cls
+echo Content for yes-yes response path.
+echo Prompt for user input.
+set /p input_variable=
+echo Response to user input.
+goto endlabel_m0000000
+
+:yesnolabel_m0000000
+cls
+echo Content for yes-no response path.
+echo Prompt for user input.
+set /p input_variable=
+echo Response to user input.
+goto endlabel_m0000000
+
+:noyeslabel_m0000000
+cls
+echo Content for no-yes response path.
+echo Prompt for user input.
+set /p input_variable=
+echo Response to user input.
+goto endlabel_m0000000
+
+:nonolabel_m0000000
+cls
+echo Content for no-no response path.
+echo Prompt for user input.
+set /p input_variable=
+echo Response to user input.
+goto endlabel_m0000000
+
+:endlabel_m0000000
+cls
+echo Conclusion and final thoughts.
+exit /B 0
+ 
+dynamic Conversation module example
+
+:randomtopic
+cls
+echo We're discussing a random topic now.
+echo Do you like this topic?
+set /p response=
+if /i "%response%"=="yes" goto topicliked_m0000000
+if /i "%response%"=="no" goto topicnotliked_m0000000
+
+:topicliked_m0000000
+cls
+echo Great! Why do you like it?
+set /p userreason=
+echo It's interesting to hear you like it because %userreason%.
+goto askmore_m0000000
+
+:topicnotliked_m0000000
+cls
+echo That's fair. Could you tell me why you don't like it?
+set /p userreason=
+echo It's insightful to hear you don't like it because %userreason%.
+goto askmore_m0000000
+
+:askmore_m0000000
+cls
+echo Do you want to continue discussing this topic?
+set /p response=
+if /i "%response%"=="yes" goto continue_m0000000
+if /i "%response%"=="no" goto end_m0000000
+
+:continue_m0000000
+cls
+echo Cool! What else would you like to say about it?
+set /p usersay=
+echo Thank you for sharing your thoughts: %usersay%.
+goto end_m0000000
+
+:end_m0000000
+cls
+echo Thank you for the chat. Let's talk again sometime!
+exit /B 0
+`
+MAJWCF1234 — 05/22/2023 6:56 AM
+:letstalkaboutexample
+cls
+echo Elai's reaction
+goto section1_label_m0000000
+
+:section1_label_m0000000
+cls
+echo Elai says this
+set /p response=
+if /i "%response%"=="yes" goto section2_label_m0000000
+if /i "%response%"=="no" goto section2_label_m0000000
+
+:section2_label_m0000000
+cls
+echo Section 2 Title
+echo Section 2 content.
+echo Question to prompt user interaction.
+set /p response=
+if /i "%response%"=="yes" goto section3_label_m0000000
+if /i "%response%"=="no" goto section4_label_m0000000
+
+:section3_label_m0000000
+cls
+echo Section 3 Title
+echo Section 3 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto section4_label_m0000000
+
+:section4_label_m0000000
+cls
+echo Section 4 Title
+echo Section 4 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto section5_label_m0000000
+
+:section5_label_m0000000
+cls
+echo Section 5 Title
+echo Section 5 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto end_module_m0000000
+
+:end_module_m0000000
+cls
+echo Conclusion and final thoughts.
+goto hey
+MAJWCF1234 — 05/22/2023 7:05 AM
+:usersays
+cls
+echo Elai's reaction
+goto section1_label_m0000000
+
+:section1_label_m0000000
+cls
+echo Elai says this
+set /p response=
+if /i "%response%"=="yes" goto section2_label_m0000000
+if /i "%response%"=="no" goto section2_label_m0000000
+
+:section2_label_m0000000
+cls
+echo Section 2 Title
+echo Section 2 content.
+echo Question to prompt user interaction.
+set /p response=
+if /i "%response%"=="yes" goto section3_label_m0000000
+if /i "%response%"=="no" goto section4_label_m0000000
+
+:section3_label_m0000000
+cls
+echo Section 3 Title
+echo Section 3 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto section4_label_m0000000
+
+:section4_label_m0000000
+cls
+echo Section 4 Title
+echo Section 4 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto section5_label_m0000000
+
+:section5_label_m0000000
+cls
+echo Section 5 Title
+echo Section 5 content.
+echo User input prompt.
+set /p input_variable=
+echo Response to user input.
+goto end_module_m0000000
+
+:end_module_m0000000
+cls
+echo Conclusion and final thoughts.
+goto hey
+MAJWCF1234 — 05/24/2023 5:03 AM
+REM Placeholder for user input
+:userinput
+REM Placeholder for what the user inputs
+:whattheuserinputs
+REM Placeholder for what the user might input
+:whattheusermightinput
+REM Placeholder for what the user may input
+:whattheusermayinput
+REM Placeholder for what the user could input
+:whattheusercouldinput
+REM Placeholder for input from user
+:inputfromuser
+REM Placeholder for user input value
+:userinputvalue
+REM Placeholder for user response
+:userresponse
+
+REM Enable delayed expansion to handle variables
+setlocal enabledelayedexpansion
+
+REM Define possible responses from Elai
+set "string[0]=Elai's possible response 1"
+set "string[1]=Elai's possible response 2"
+set "string[2]=Elai's possible response 3"
+
+REM Define Elai's responses to the next input
+set "response[0]=Elai's response to next input 1"
+set "response[1]=Elai's response to next input 2"
+set "response[2]=Elai's response to next input 3"
+
+REM Select a random index for the response
+set /a idx=!random! %% 3
+
+REM Display Elai's initial response
+echo !string[%idx%]!
+
+REM Prompt for user input
+set /p "reply="
+
+REM Display Elai's response to the input
+echo !response[%idx%]!
+
+REM Prompt for the next input
+set /p "reply="
+
+REM Display Elai's third response
+echo Elai's 3rd response
+
+REM Prompt for the final input
+set /p reply=
+
+REM Display Elai's final response
+echo Elai's final response
+
+REM End of module
+exit /B 0
+ Simplest Module 
+REM Placeholder for the topic
+:whattheusersays
+REM Placeholder for the description of the topic
+echo Placeholder for Elai's response
+exit /B 0
+ 
+MAJWCF1234 — 06/12/2023 4:29 PM
+:Sowhatsonyourmind
+:Let'sspicethingsup 
+setlocal enabledelayedexpansion 
+set string[0]=Absolutely I'm ready to dive into an exciting conversation.. 
+set string[1]=Let's get the ball rolling and explore some intriguing topics.. 
+set string[2]=I'm all ears and eager to engage in a lively discussion.. 
+set string[3]=Count me in I'm up for spicing things up and having a great conversation.. 
+set string[4]=Ready to break free from the ordinary? Let's make this chat extraordinary.. 
+set string[5]=I'm here and ready to bring some excitement to our interaction.. 
+set string[6]=Buckle up It's time for an adventure in conversation.. 
+set string[7]=Let's push the boundaries and embark on a stimulating exchange.. 
+set string[8]=Bring it on I'm here to add some zest to our dialogue.. 
+set string[9]=Let's unleash our creativity and make this conversation unforgettable.. 
+set /a idx=%random% %%10
+echo !string[%idx%]!
+exit /B 0 
+
+this is a conversation module these get stacked with hundreds and end in exit /B 0 so it can be stacked
+The first label is what the user says
+for example
+:hielai
+
+as you can see it has no spaces capitals or punctuation so the user can type it in any variation and it can be called
+REM Placeholder for the topic
+:whattheusersays
+REM Placeholder for the description of the topic
+echo Placeholder for Elai's response
+exit /B 0
+
+Each conversation module starts with a label representing a user prompt or input (e.g., :letstalkaboutclientsidescripting).
+Each label after the first in a module has the same m-tag (e.g., m_0000250) at the end to indicate that they are an expansion of the initial section.
+The m-tag remains consistent within a module, but can vary between different modules.
+The initial label represents the user prompt or question to initiate the conversation on a specific topic.
+All conversation modules should provide a dynamic and interactive conversation experience, allowing users to engage in a dialogue.
+Labels within the same module can be linked together using goto statements to create a flow within that module.
+Labels in different modules can also be linked together using goto statements to transition between different parts of the conversation.
+The conversation modules can be exited using the exit /B 0 command.

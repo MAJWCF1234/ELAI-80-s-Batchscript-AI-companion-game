@@ -1,0 +1,271 @@
+@echo off
+setlocal enabledelayedexpansion
+
+:letsplaystrandedin4drealm
+goto :main_menu_gm_00000024
+ 
+:main_menu_gm_00000024
+cls
+echo Welcome to Stranded in a 4-D Realm
+echo.
+echo 1. Start game
+echo 2. Exit
+echo.
+set /p choice=Make your choice (1-2): 
+if "%choice%"=="1" goto enter_character_name_gm_00000024
+if "%choice%"=="2" goto exit_game_gm_00000024
+echo Invalid choice
+pause
+goto main_menu_gm_00000024
+ 
+:enter_character_name_gm_00000024
+cls
+ echo -----------------------------------------------------------
+echo Enter your character's name:
+ echo -----------------------------------------------------------
+set /p character_name=
+echo Character name set as: %character_name%
+pause
+goto start_game_gm_00000024
+
+
+
+ :start_game_gm_00000024
+cls
+echo ------------------------------------------------------------------------------------------------------
+echo Chapter 1: The Anomaly
+echo ------------------------------------------------------------------------------------------------------
+echo In a distant future, where humanity's thirst for exploration knew no bounds, a brilliant
+echo scientist and astronaut named %character_name% stood at the forefront of scientific
+echo advancement. With unrivaled expertise and an insatiable curiosity, %character_name%
+echo had dedicated their life to unraveling the mysteries of the cosmos.
+ echo ------------------------------------------------------------------------------------------------------
+
+pause
+ cls
+@Echo off & Setlocal EnableExtensions EnableDelayedExpansion
+CHCP 65001 > nul
+cls
+
+REM change the below variable value to assign the path of the file to be displayed below.
+Set "imagepath=%~dp0Sprites\eventide.txt"
+
+for /F %%a in ('Echo(prompt $E^| cmd')Do Set CSI=%%a[
+
+> Con (
+    For /f "UsebackQ Delims=" %%G in ("%imagepath%")Do (
+        Set "Line=%%G"
+        Echo(!Line:e[=%CSI%!
+)    )
+echo ------------------------------------------------------------------------------------------------------
+echo The day of the groundbreaking mission had arrived. %character_name% and the crew of the Eventide stood on the precipice of a 
+echo grand adventure that would redefine humanity's understanding of the cosmos. Their hearts swelled with excitement as they 
+echo prepared to embark on a journey that would push the boundaries of human understanding.
+echo .
+echo The Eventide, a testament to human ingenuity, gleamed in the sunlight. Its metallic exterior, adorned with state-of-the-art 
+echo instruments and advanced technology, whispered of the discoveries it was destined to unveil. At its core, the revolutionary 
+echo faster-than-light (FTL) engine, a product of %character_name%'s brilliant mind, held the promise of propelling them beyond the 
+echo known reaches of space.
+echo ------------------------------------------------------------------------------------------------------
+pause 
+cls
+echo ------------------------------------------------------------------------------------------------------
+echo As %character_name% surveyed their crew, a diverse group of experts chosen for their expertise and unwavering determination, 
+echo they felt a deep sense of pride. Each crew member represented a vital piece of the puzzle, bringing their unique skills and 
+echo knowledge to 
+echo the table. Together, they formed a cohesive unit, ready to tackle the challenges that lay ahead.
+echo .
+echo The atmosphere crackled with anticipation as the final checks and preparations were completed. The launch facility buzzed with 
+echo activity, a hive of engineers, technicians, and onlookers who understood the magnitude of this historic moment. The world held echo its breath, awaiting the launch of the Eventide and the beginning of a new chapter in humanity's quest for knowledge.
+echo As %character_name% stood at the helm of the spacecraft, their heart swelled with a mixture of exhilaration and a keen 
+echo awareness of the weight of responsibility. They had dedicated their life to this mission, pouring their intellect and passion echo into the design of the Eventide and its revolutionary propulsion system.
+echo Outside the spacecraft, a crowd had gathered to witness this momentous occasion. The eyes of the world were upon %
+echo character_name% and their crew, looking to them as pioneers and ambassadors of humanity's unquenchable thirst for exploration.
+echo .
+echo With the final countdown echoing in their ears, %character_name%'s mind raced with a flurry of thoughts and emotions. The 
+echo dreams of countless nights and years of preparation had led to this moment. The decision they were about to make would shape 
+echo the course of their own destiny and the trajectory of scientific progress.
+echo .
+echo ------------------------------------------------------------------------------------------------------
+echo -----------------------------------
+echo What would you like to do?
+echo -----------------------------------
+echo.
+echo 1. Do you continue with the mission
+echo 2. Do you turn back
+echo ------------------------------------------------------------------------------------------------------
+set /p choice=Make your choice (1-2): 
+if "%choice%"=="1" goto continuewithlighttravel_gm_00000024
+if "%choice%"=="2" goto turnbackfromjump_gm_00000024
+echo
+Invalid choice
+pause
+goto
+Start_game_gm_00000024
+
+:turnbackfromjump_gm_00000024
+echo %character_name% hesitated, contemplating the risks involved in venturing into the unknown. They stood at the helm of the Eventide, their gaze fixed on the expanse of space before them. It was a moment of profound decision, where the allure of discovery clashed with the weight of responsibility.
+
+echo Thoughts of the crew's safety and the potential dangers that lay ahead consumed %character_name%'s mind. They knew that turning back meant abandoning the opportunity to uncover new cosmic frontiers, to unravel the mysteries of uncharted territories. But it also meant prioritizing the lives entrusted to their care.
+
+echo As %character_name% looked around at the dedicated crew members who had joined them on this ambitious mission, they felt a sense of duty wash over them. These were not just colleagues; they were a tightly-knit team that had trained and prepared for this moment together. Their well-being was paramount.
+
+echo With a heavy heart, %character_name% made the difficult decision to turn back. The Eventide's course was recalibrated, and the spacecraft began its journey back towards Earth. Disappointment mingled with relief as the crew accepted the outcome, knowing that they had made the responsible choice.
+
+pause
+cls
+@Echo off & Setlocal EnableExtensions EnableDelayedExpansion
+CHCP 65001 > nul
+cls
+
+REM change the below variable value to assign the path of the file to be displayed below.
+Set "imagepath=%~dp0Sprites\earth.txt"
+
+for /F %%a in ('Echo(prompt $E^| cmd')Do Set CSI=%%a[
+
+> Con (
+    For /f "UsebackQ Delims=" %%G in ("%imagepath%")Do (
+        Set "Line=%%G"
+        Echo(!Line:e[=%CSI%!
+)    )
+echo -----------------------------------------------------------
+echo Chapter 2: A Changed Path
+echo -----------------------------------------------------------
+echo The Eventide retraced its steps, returning to familiar celestial landmarks as it made its way back home. The journey that had once been filled with anticipation and wonder was now a bittersweet reflection of what could have been.
+
+echo On the return trip, the crew members found solace in one another's company. They shared stories, laughter, and moments of contemplation. There was a collective understanding that the decision to turn back was not a defeat but a demonstration of their commitment to each other's well-being.
+
+echo %character_name%, too, found solace in knowing that they had prioritized the safety of their crew. Although their thirst for exploration remained unquenched, they were determined to find new avenues to contribute to scientific understanding from within the boundaries of known space.
+
+echo Back on Earth, the Eventide's arrival became a subject of intrigue and reflection. It was hailed as a testament to human ingenuity and the value of calculated risk. Scientists, philosophers, and explorers debated the implications of turning back, sparking discussions about the delicate balance between ambition and caution.
+
+pause
+cls
+@Echo off & Setlocal EnableExtensions EnableDelayedExpansion
+CHCP 65001 > nul
+cls
+
+REM change the below variable value to assign the path of the file to be displayed below.
+Set "imagepath=%~dp0Sprites\medal.txt"
+
+for /F %%a in ('Echo(prompt $E^| cmd')Do Set CSI=%%a[
+
+> Con (
+    For /f "UsebackQ Delims=" %%G in ("%imagepath%")Do (
+        Set "Line=%%G"
+        Echo(!Line:e[=%CSI%!
+)    )
+echo [ A lonely medal sits on a desk and everyday you think of what could have been.]
+echo %character_name% became an advocate for responsible exploration, sharing their experience and the lessons learned. They spoke at conferences, wrote books, and inspired others with their unique perspective. The Eventide's journey, though shorter than anticipated, became a catalyst for a new era of collaborative research and comprehensive risk assessment.
+
+echo And so, the Eventide returned to Earth, becoming a symbol of both scientific progress and the importance of measured decision-making. The journey may have ended sooner than anticipated, but the lessons learned would fuel future endeavors and inspire the next generation of explorers.
+
+pause
+cls
+
+echo -----------------------------------------------------------
+echo Thank you for playing!
+echo -----------------------------------------------------------
+echo This is the end of the game. We hope you enjoyed your adventure with %character_name% and the crew of the Eventide.
+
+pause
+exit /B 0
+
+:continuewithlighttravel_gm_00000024
+echo ------------------------------------------------------------------------------------------------------
+echo As the crew took their positions, an electrifying excitement filled the air. Each crew member was acutely aware of the magnitude of the mission ahead, their hearts beating in sync with the rhythmic hum of the Eventide's engines. 
+echo .
+echo In the commanding seat, Captain Astra was no different. Gazing out into the vast, infinite expanse of space, a rush of adrenaline coursed through her veins. The view from the spacecraft was breathtaking, a black canvas studded with countless twinkling stars, each one holding untold mysteries waiting to be discovered.
+echo .
+echo The mission objective was clear - explore uncharted regions of space and search for habitable exoplanets. The possibility of finding a new home for humanity, a beacon of hope in the darkness of space, was a responsibility she felt deeply.
+echo ------------------------------------------------------------------------------------------------------
+pause 
+cls
+echo ------------------------------------------------------------------------------------------------------
+echo Suddenly, a surge of energy pulsed through the spacecraft. It was time. Time to test the groundbreaking faster-than-light propulsion system, a testament to human innovation and the cornerstone of their mission.
+echo .
+echo As Captain Astra initiated the FTL drive, a wave of trepidation washed over her. The hum of the engines escalated to a roar, the whole spacecraft vibrating with the immense energy generated. The familiar scene outside the spacecraft window began to warp, as if they were gazing through a distorted lens.
+echo .
+echo Everything around them began to change. The vast emptiness of space collapsed into a singular point in front of them. The stars, once distant and scattered across the dark expanse, were now streaks of light converging towards the anomaly.
+echo .
+echo An unexpected anomaly. A tear in the fabric of space and time. The Eventide, caught in the powerful gravitational pull, was being drawn towards it.
+echo ------------------------------------------------------------------------------------------------------
+pause 
+cls
+echo ------------------------------------------------------------------------------------------------------
+echo Panic surged through the spacecraft as the crew fought to regain control. Captain Astra, a picture of focus amidst the chaos, tried desperately to reverse the engines, to pull them away from the unanticipated threat. But it was too late. The anomaly's pull was too strong.
+echo .
+echo The spacecraft began to crumble under the immense gravitational force, metal groaning in protest as it twisted and contorted. Warning alarms blared, the once controlled hum of the spacecraft replaced with the cacophony of destruction.
+echo .
+echo Captain Astra was thrown against her harness as the Eventide spun uncontrollably towards the anomaly. The world outside the spacecraft window turned into a blur of light and darkness, the boundary between reality and the unknown dissolving right in front of her eyes.
+echo .
+echo The last thing she remembered was the sensation of falling, or was it flying? Then, everything went black.
+echo ------------------------------------------------------------------------------------------------------
+pause 
+cls
+echo ------------------------------------------------------------------------------------------------------
+echo She awoke to a reality far removed from anything she had ever experienced. It was as if she had been thrust into an alien landscape, a world where the laws of physics she knew no longer applied.
+echo .
+echo Disoriented, Captain Astra slowly pushed herself off the ground, her body aching from the impact. Looking around, her eyes met with a panorama of impossibilities. The landscape was a chaotic blend of dimensions, shapes shifting and bending in ways that made her head spin.
+echo .
+echo The world around her was a surreal collection of multi-dimensional structures, landscapes that stretched and twisted into the fourth dimension, colors and patterns that her mind struggled to process. It was like nothing she had ever seen, a spectacle of multidimensional physics playing out in front of her.
+echo .
+echo As she attempted to comprehend her surroundings, a chilling realization dawned upon her. The crew, her friends, were nowhere in sight. The wreckage of the Eventide, once a beacon of human ingenuity, was now scattered across the alien landscape, a grim reminder of their disastrous entrance into this world.
+echo .
+echo Lost, alone, and stranded in a world beyond her comprehension, Captain Astra stood amidst the wreckage of her once proud spacecraft. As she gazed upon the alien landscape, she knew she was no longer in the three-dimensional universe she called home.
+echo .
+echo She was stranded in the fourth dimension.
+echo ------------------------------------------------------------------------------------------------------
+
+echo ------------------------------------------------------------------------------------------------------
+echo What should %character_name% do next?
+echo 1. Explore the surroundings
+echo 2. Attempt to use the communicator to call for help
+echo Enter your choice (1-2) and press Enter:
+set /p choice=
+if "%choice%"=="1" goto explore_surroundings
+if "%choice%"=="2" goto use_communicator
+
+:explore_surroundings
+echo ------------------------------------------------------------------------------------------------------
+echo Deciding to explore, %character_name% carefully rose to her feet, every sense on high alert. She started to take in the 
+echo strange environment, her scientific curiosity momentarily overriding the fear and disorientation. 
+echo .
+echo The landscape was unlike anything she had ever witnessed. It was as though reality had been twisted and distorted, defying 
+echo all known laws of physics. The ground beneath her feet pulsed with an unfamiliar energy, and the air seemed to vibrate with 
+echo an unperceivable force.
+echo .
+echo Structures and entities of impossible geometries towered above her, shifting and morphing in a continuous, fluid motion. 
+echo They phased in and out of her perception, revealing glimpses of their complex nature. 
+echo .
+echo Colours she had no name for painted the landscape, shimmering and fluctuating as if alive. The sky - if it could be called 
+echo that - was a swirling maelstrom of luminescent hues, casting strange, elongated shadows that seemed to bend and warp around 
+echo invisible corners.
+echo .
+echo Overwhelmed and awestruck by the sheer alienness of her surroundings, %character_name% felt an uncanny sense of both dread 
+echo and fascination. She was stranded in a world that was meant for minds far more complex than the human brain. Yet, her thirst 
+echo for knowledge spurred her on, pushing her to comprehend the incomprehensible.
+echo ------------------------------------------------------------------------------------------------------
+pause 
+cls
+
+:use_communicator
+echo ------------------------------------------------------------------------------------------------------
+echo Choosing to try the communicator, %character_name% fumbled with the device, her hands trembling as she activated it. Static 
+echo filled the air, a harsh, grating sound that seemed eerily out of place in the alien landscape.
+echo .
+echo Her voice, when she finally managed to speak, sounded small and insignificant, swallowed up by the enormity of her 
+echo surroundings. She called out for her crew, her voice echoing into the silence.
+echo .
+echo But there was no response, only the relentless static that served as a grim reminder of her isolation. The harsh reality 
+echo of her situation sank in. She was alone, stranded in a reality so alien and incomprehensible that it made her head spin.
+echo .
+echo The communicator slipped from her grasp, landing with a soft thud on the strange ground. The silence that followed was 
+echo deafening, pressing down on her from all sides. A sense of despair washed over her, threatening to pull her under.
+echo .
+echo But she wasn't one to give in to despair. Shaking off the wave of hopelessness, %character_name% picked up the communicator 
+echo again, determination burning in her eyes. She was not going to give up. Not yet.
+echo ------------------------------------------------------------------------------------------------------
+pause 
+cls
+

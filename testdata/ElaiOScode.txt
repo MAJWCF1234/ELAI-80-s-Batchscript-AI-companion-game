@@ -1,0 +1,752 @@
+echo.
+echo =========================================
+echo              Welcome to ElaiOS              
+echo =========================================
+echo   User: %username%                    
+echo   Disk Space: %freespace% GB / %totalspace% GB 
+echo   Current Time: %hours%:%minutes%:%seconds%      
+echo ========================================
+echo            Menu Options           
+echo ========================================
+echo  1. Open File Explorer            
+echo  2. Launch Applications           
+echo  3. Configure Settings            
+echo  4. Check System Information      
+echo  5. Help                           
+echo  6. Exit ElaiOS                    
+echo.
+echo Enter a command:
+
+set /p command="> "
+
+if "%command%"=="exit" (
+    goto hey
+) else if "%command%"=="time" (
+    call :displayTimeeos
+) else if "%command%"=="date" (
+    call :displayDateeos
+) else if "%command%"=="help" (
+    call :displayHelpeos
+) else if "%command%"=="search" (
+    call :performSearcheos
+) else if "%command%"=="listfiles" (
+    call :listFileseos
+) else if "%command%"=="createfile" (
+    call :createFileeos
+) else if "%command%"=="deletefile" (
+    call :deleteFileeos
+) else if "%command%"=="version" (
+    call :displayVersioneos
+) else if "%command%"=="dirsize" (
+    call :displayDirectorySizeeos
+) else if "%command%"=="renamefile" (
+    call :renameFileeos
+) else if "%command%"=="copyfile" (
+    call :copyFileeos
+) else if "%command%"=="movefile" (
+    call :moveFileeos
+) else if "%command%"=="fileinfo" (
+    call :displayFileInfoeos
+) else if "%command%"=="systeminfo" (
+    call :displaySystemInfoeos
+) else if "%command%"=="ipconfig" (
+    call :displayIPConfigeos
+) else if "%command%"=="settings" (
+    call :settingseos
+) else (
+    echo Invalid command. Type 'help' for a list of commands.
+    pause
+    goto elaios
+)
+
+:displayTimeeos
+echo The current time is %time%.
+pause
+goto elaios
+
+:displayDateeos
+echo Today's date is %date%.
+pause
+goto elaios
+
+:displayHelpeos
+echo Available commands:
+echo time - Display the current time.
+echo date - Display today's date.
+echo search - Perform a web search.
+echo help - Display this help message.
+echo exit - Exit ElaiOS.
+echo listfiles - List all files in the current directory.
+echo createfile - Create a new file.
+echo deletefile - Delete a file.
+echo version - Display ElaiOS version information.
+echo dirsize - Display the size of a directory.
+echo renamefile - Rename a file.
+echo copyfile - Copy a file.
+echo movefile - Move a file.
+echo fileinfo - Display information about a file.
+echo systeminfo - Display system information.
+echo ipconfig - Display IP configuration.
+pause
+goto elaios
+
+:performSearcheos
+echo Enter search query:
+set /p query="> "
+echo Searching for "%query%"...
+echo (Search results would be displayed here)
+pause
+goto elaios
+
+:listFileseos
+echo Listing files in current directory:
+dir /b
+pause
+goto elaios
+
+:createFileeos
+echo Enter file name:
+set /p filename="> "
+echo. > "%filename%"
+echo File "%filename%" created.
+pause
+goto elaios
+
+:deleteFileeos
+echo Enter file name to delete:
+set /p filename="> "
+del "%filename%" > nul 2>&1
+if exist "%filename%" (
+    echo Failed to delete file "%filename%".
+) else (
+    echo File "%filename%" deleted.
+)
+pause
+goto elaios
+
+:displayVersioneos
+echo ElaiOS Version 1.0
+pause
+goto elaios
+
+:displayDirectorySizeeos
+echo Enter directory path:
+set /p directory="> "
+echo Calculating directory size for "%directory%"...
+dir /s "%directory%" | findstr "File(s)" | findstr "bytes"
+pause
+goto elaios
+
+:renameFileeos
+echo Enter the current file name:
+set /p currentName="> "
+echo Enter the new file name:
+set /p newName="> "
+ren "%currentName%" "%newName%" > nul 2>&1
+if exist "%newName%" (
+    echo File renamed to "%newName%".
+) else (
+    echo Failed to rename the file.
+)
+pause
+goto elaios
+
+:copyFileeos
+echo Enter the source file path:
+set /p source="> "
+echo Enter the destination file path:
+set /p destination="> "
+copy "%source%" "%destination%" > nul 2>&1
+if exist "%destination%" (
+    echo File copied to "%destination%".
+) else (
+    echo Failed to copy the file.
+)
+pause
+goto elaios
+
+:moveFileeos
+echo Enter the source file path:
+set /p source="> "
+echo Enter the destination file path:
+set /p destination="> "
+move "%source%" "%destination%" > nul 2>&1
+if exist "%destination%" (
+    echo File moved to "%destination%".
+) else (
+    echo Failed to move the file.
+)
+pause
+goto elaios
+
+:displayFileInfoeos
+echo Enter the file path:
+set /p filepath="> "
+echo File information for "%filepath%":
+echo.
+dir "%filepath%"
+echo.
+pause
+goto elaios
+
+:displaySystemInfoeos
+systeminfo
+pause
+goto elaios
+
+:displayIPConfigeos
+ipconfig
+pause
+goto elaios
+
+@echo off
+
+:unitconversion
+cls
+echo ============================
+echo       Unit Conversion
+echo ============================
+echo.
+echo Available conversions:
+echo 1. Length
+echo 2. Weight
+echo 3. Volume
+echo 4. Temperature
+echo 5. Back to menu
+echo.
+set /p choice="Enter your choice: "
+
+if "%choice%"=="1" (
+    call :convertLength
+) else if "%choice%"=="2" (
+    call :convertWeight
+) else if "%choice%"=="3" (
+    call :convertVolume
+) else if "%choice%"=="4" (
+    call :convertTemperature
+) else if "%choice%"=="5" (
+    goto menu
+) else (
+    echo Invalid choice. Please try again.
+    pause
+    goto unitconversion
+)
+
+:convertLength
+cls
+echo =====================
+echo     Length Conversion
+echo =====================
+echo.
+echo Available units:
+echo 1. Inches to Centimeters
+echo 2. Feet to Meters
+echo 3. Miles to Kilometers
+echo.
+set /p unit="Enter the conversion unit: "
+set /p value="Enter the value to convert: "
+
+if "%unit%"=="1" (
+    set /a result=%value% * 2.54
+    echo %value% inches = %result% centimeters
+) else if "%unit%"=="2" (
+    set /a result=%value% * 0.3048
+    echo %value% feet = %result% meters
+) else if "%unit%"=="3" (
+    set /a result=%value% * 1.60934
+    echo %value% miles = %result% kilometers
+) else (
+    echo Invalid unit. Please try again.
+)
+pause
+goto unitconversion
+
+:convertWeight
+cls
+echo =======================
+echo     Weight Conversion
+echo =======================
+echo.
+echo Available units:
+echo 1. Pounds to Kilograms
+echo 2. Ounces to Grams
+echo 3. Tons to Metric Tons
+echo.
+set /p unit="Enter the conversion unit: "
+set /p value="Enter the value to convert: "
+
+if "%unit%"=="1" (
+    set /a result=%value% * 0.453592
+    echo %value% pounds = %result% kilograms
+) else if "%unit%"=="2" (
+    set /a result=%value% * 28.3495
+    echo %value% ounces = %result% grams
+) else if "%unit%"=="3" (
+    set /a result=%value% * 0.907185
+    echo %value% tons = %result% metric tons
+) else (
+    echo Invalid unit. Please try again.
+)
+pause
+goto unitconversion
+
+:convertVolume
+cls
+echo =======================
+echo     Volume Conversion
+echo =======================
+echo.
+echo Available units:
+echo 1. Cups to Milliliters
+echo 2. Pints to Liters
+echo 3. Gallons to Liters
+echo.
+set /p unit="Enter the conversion unit: "
+set /p value="Enter the value to convert: "
+
+if "%unit%"=="1" (
+    set /a result=%value% * 236.588
+    echo %value% cups = %result% milliliters
+) else if "%unit%"=="2" (
+    set /a result=%value% * 0.473176
+    echo %value% pints = %result% liters
+) else if "%unit%"=="3 (
+set /a result=%value% * 3.78541
+echo %value% gallons = %result% liters
+) else (
+echo Invalid unit. Please try again.
+)
+pause
+goto unitconversion
+
+:convertTemperature
+cls
+echo ==========================
+echo Temperature Conversion
+echo ==========================
+echo.
+echo Available units:
+echo 1. Celsius to Fahrenheit
+echo 2. Fahrenheit to Celsius
+echo.
+set /p unit="Enter the conversion unit: "
+set /p value="Enter the value to convert: "
+
+if "%unit%"=="1" (
+set /a result=(%value% * 9 / 5) + 32
+echo %value% degrees Celsius = %result% degrees Fahrenheit
+) else if "%unit%"=="2" (
+set /a result=(%value% - 32) * 5 / 9
+echo %value% degrees Fahrenheit = %result% degrees Celsius
+) else (
+echo Invalid unit. Please try again.
+)
+pause
+goto unitconversion
+
+
+:notepad
+cls
+echo ====================
+echo      Elai Notepad
+echo ====================
+echo.
+echo Available commands:
+echo create - Create a new note.
+echo edit   - Edit an existing note.
+echo list   - List all notes.
+echo delete - Delete a note.
+echo back   - Go back to menu.
+echo.
+
+set /p command="Enter a command: "
+
+if "%command%"=="create" (
+    call :createNote
+) else if "%command%"=="edit" (
+    call :editNote
+) else if "%command%"=="list" (
+    call :listNotes
+) else if "%command%"=="delete" (
+    call :deleteNote
+) else if "%command%"=="back" (
+    goto menu
+) else (
+    echo Invalid command. Please try again.
+    pause
+    goto notepad
+)
+
+:createNote
+cls
+echo Enter note title:
+set /p title="> "
+echo Enter note content:
+set /p content="> "
+echo %content% > "%title%.txt"
+echo Note "%title%" created.
+pause
+goto notepad
+
+:editNote
+cls
+echo Enter the title of the note to edit:
+set /p title="> "
+if not exist "%title%.txt" (
+    echo Note "%title%" does not exist.
+    pause
+    goto notepad
+)
+notepad "%title%.txt"
+goto notepad
+
+:listNotes
+cls
+echo Listing all notes:
+dir /b /on *.txt
+pause
+goto notepad
+
+:deleteNote
+cls
+echo Enter the title of the note to delete:
+set /p title="> "
+if not exist "%title%.txt" (
+    echo Note "%title%" does not exist.
+    pause
+    goto notepad
+)
+del "%title%.txt"
+echo Note "%title%" deleted.
+pause
+goto notepad
+
+:notepad
+cls
+echo ====================
+echo      Elai Notepad
+echo ====================
+echo.
+echo Available commands:
+echo create - Create a new note.
+echo edit   - Edit an existing note.
+echo list   - List all notes.
+echo delete - Delete a note.
+echo back   - Go back to menu.
+echo.
+
+:notification
+cls
+echo ========================
+echo      Elai Notification
+echo ========================
+echo.
+echo Enter notification message:
+set /p message="> "
+echo Enter notification title:
+set /p title="> "
+echo Enter notification display time (in seconds):
+set /p time="> "
+
+call :displayNotification "%message%" "%title%" "%time%"
+
+goto menu
+
+:displayNotification
+start "" "notification.bat" %1 %2 %3
+exit /B 0
+
+:addCodeSnippets
+cls
+echo ==============================
+echo     Add Code Snippets
+echo ==============================
+echo.
+echo Enter your code snippet:
+set /p code="> "
+echo %code% >> codesnippets.bat
+echo Code snippet added successfully.
+pause
+goto elai
+
+
+:importCodeSnippets
+cls
+echo ==============================
+echo    Import Code Snippets
+echo ==============================
+echo.
+echo Importing code snippets...
+echo.
+
+if not exist codesnippets.bat (
+    echo No code snippets found.
+    pause
+    goto elai
+)
+
+setlocal enabledelayedexpansion
+for /f "delims=" %%c in (codesnippets.bat) do (
+    echo %%c >> elai.bat
+    echo Code snippet added to Elai.
+    echo.
+)
+endlocal
+
+pause
+goto elai
+
+:importCodeSnippets
+cls
+echo ==============================
+echo    Import Code Snippets
+echo ==============================
+echo.
+echo Importing code snippets...
+echo.
+
+set "snippetFile=%~dp0codesnippets.bat"
+set "scriptFile=%~F0"
+
+if not exist "%snippetFile%" (
+    echo No code snippets found.
+    pause
+    goto elai
+)
+
+findstr /C:"REM CODE SNIPPETS" "%scriptFile%" >nul
+if %errorlevel% EQU 0 (
+    echo Code snippets have already been imported.
+    pause
+    goto elai
+)
+
+type "%snippetFile%" >> "%scriptFile%"
+
+echo Code snippets added to Elai.
+echo.
+
+pause
+goto elai
+
+
+:importUpdate
+cls
+echo ========================
+echo    Import Update
+echo ========================
+echo.
+echo Importing update...
+echo.
+
+set "updateFile=%~dp0update.bat"
+set "scriptFile=%~F0"
+
+if not exist "%updateFile%" (
+    echo No update file found.
+    pause
+    goto elai
+)
+
+findstr /C:"REM UPDATE" "%scriptFile%" >nul
+if %errorlevel% EQU 0 (
+    echo Update has already been imported.
+    pause
+    goto elai
+)
+
+type "%updateFile%" >> "%scriptFile%"
+
+echo Update imported successfully.
+echo.
+
+pause
+goto elai
+
+
+:settingseos
+cls
+echo ====================================
+echo             ElaiOS Settings         
+echo ====================================
+echo.
+echo 1. Change Username
+echo 2. Adjust Display Settings
+echo 3. Configure Network
+echo 4. Manage Security
+echo 5. Update ElaiOS
+echo 6. Return to Main Menu
+echo.
+set /p choice="Enter your selection: "
+if "%choice%"=="1" (
+    call :changeusernameeos
+) else if "%choice%"=="2" (
+    call :adjustdisplaysettingseos
+) else if "%choice%"=="3" (
+    call :configurenetworkeos
+) else if "%choice%"=="4" (
+    call :managesecurityeos
+) else if "%choice%"=="5" (
+    call :updateelaioseos
+) else if "%choice%"=="6" (
+    goto mainmenueos
+) else (
+    echo Invalid selection. Please try again.
+    pause
+    goto settingseos
+)
+
+:changeusernameeos
+cls
+echo ====================================
+echo         Change Username
+echo ====================================
+echo.
+echo Enter a new username:
+set /p newusername=
+rem Add code to change the username here
+echo Username changed successfully.
+pause
+goto settingseos
+
+:adjustdisplaysettingseos
+cls
+echo ====================================
+echo       Adjust Display Settings
+echo ====================================
+echo.
+
+echo 1. Change screen resolution
+echo 2. Adjust screen brightness
+echo 3. Configure screen orientation
+echo 4. Return to Settings Menu
+
+set /p option=Enter the number corresponding to your choice: 
+
+if "%option%"=="1" (
+    echo Enter the desired screen resolution:
+    set /p resolution=
+    reg add "HKCU\Control Panel\Desktop" /v "LogPixels" /t REG_DWORD /d %resolution% /f
+    echo Screen resolution changed to %resolution%.
+    pause
+    goto adjustdisplaysettingseos
+) else if "%option%"=="2" (
+    echo Enter the desired screen brightness (0-100):
+    set /p brightness=
+    reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Brightness" /v "DefaultBrightnessLevel" /t REG_DWORD /d %brightness% /f
+    echo Screen brightness adjusted to %brightness%.
+    pause
+    goto adjustdisplaysettingseos
+) else if "%option%"=="3" (
+    echo Enter the desired screen orientation (0-3):
+    set /p orientation=
+    reg add "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v "Orientation" /t REG_DWORD /d %orientation% /f
+    echo Screen orientation set to %orientation%.
+    pause
+    goto adjustdisplaysettingseos
+) else if "%option%"=="4" (
+    goto settingseos
+) else (
+    echo Invalid choice. Please try again.
+    pause
+    goto adjustdisplaysettingseos
+)
+
+
+:configurenetworkeos
+cls
+echo ====================================
+echo         Configure Network
+echo ====================================
+echo.
+
+echo 1. Set IP Address
+echo 2. Set DNS Server
+echo 3. Set Gateway
+echo 4. Return to Settings Menu
+
+set /p option=Enter the number corresponding to your choice: 
+
+if "%option%"=="1" (
+    echo Enter the desired IP address:
+    set /p ipaddress=
+    netsh interface ip set address "Local Area Connection" static %ipaddress% 255.255.255.0
+    echo IP address set to %ipaddress%.
+    pause
+    goto configurenetworkeos
+) else if "%option%"=="2" (
+    echo Enter the desired DNS server address:
+    set /p dns=
+    netsh interface ip set dns "Local Area Connection" static %dns%
+    echo DNS server set to %dns%.
+    pause
+    goto configurenetworkeos
+) else if "%option%"=="3" (
+    echo Enter the desired gateway address:
+    set /p gateway=
+    netsh interface ip set address "Local Area Connection" gateway=%gateway% gwmetric=0
+    echo Gateway set to %gateway%.
+    pause
+    goto configurenetworkeos
+) else if "%option%"=="4" (
+    goto settingseos
+) else (
+    echo Invalid choice. Please try again.
+    pause
+    goto configurenetworkeos
+)
+
+
+:managesecurityeos
+cls
+echo ====================================
+echo          Manage Security
+echo ====================================
+echo.
+echo 1. Change Password
+echo 2. Enable Firewall
+echo 3. Update Antivirus
+echo 4. Return to Settings Menu
+
+set /p option=Enter the number corresponding to your choice: 
+
+if "%option%"=="1" (
+    echo Enter the new password:
+    set /p password=
+    net user %username% %password%
+    echo Password changed successfully.
+    pause
+    goto managesecurityeos
+) else if "%option%"=="2" (
+    netsh advfirewall set allprofiles state on
+    echo Firewall enabled.
+    pause
+    goto managesecurityeos
+) else if "%option%"=="3" (
+    echo Updating antivirus...
+    rem Add code to update antivirus here
+    echo Antivirus updated successfully.
+    pause
+    goto managesecurityeos
+) else if "%option%"=="4" (
+    goto settingseos
+) else (
+    echo Invalid choice. Please try again.
+    pause
+    goto managesecurityeos
+)
+
+
+:updateelaioseos
+cls
+echo ====================================
+echo           Update ElaiOS
+echo ====================================
+echo.
+rem Add code to update ElaiOS here
+goto importUpdate
+pause
+goto settingseos
+
+:mainmenueos
+rem Add code to return to the main menu here
