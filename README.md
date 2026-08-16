@@ -4,7 +4,7 @@
 ## Overview
 
 **Game Name:** Elai  
-**Current Version:** 2.5.2  
+**Current Version:** 2.5.5
 **Purpose:** Elai is a conversational AI game that provides a dynamic and interactive dialogue experience.
 
 ## Table of Contents
@@ -73,3 +73,13 @@ title Extreamly Lightweight Artificial Inteligance
 - Add more branching dialogues.
 - Include an option to loop back to previous sections.
 - Improve user input validation.
+
+### 8. Maintenance Notes
+
+- The main game remains pure Windows Batch and does not require NirCmd or another third-party runtime.
+- Audio paths are resolved relative to the batch file, so the game can be moved as a folder.
+- The Search tool uses the system default browser and returns safely when no query is entered.
+- The main conversation loop ignores blank input and routes ordinary spaces out of labels as intended by the original module format.
+- For a faster launch, set `ELAI_FAST_BOOT=1` before starting the batch file; the original theatrical boot sequence remains available by default.
+- Learned responses are stored in `elai_memory.txt` while playing, so the engine file is not rewritten on every lesson.
+- Type `shiplearning` during a conversation to create `Elai_learned_release.bat`, a single-file release containing the learned responses.
