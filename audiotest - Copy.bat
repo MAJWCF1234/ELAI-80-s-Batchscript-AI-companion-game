@@ -29,10 +29,10 @@ pause
 exit /b 0
 
 :playaudio
-if exist "%~dp0\%1" (
-    echo Playing audio file "%1"...
-    start /min /B "" "%~dp0\%1"
+if exist "%~dp0%~1" (
+    echo Playing audio file "%~1"...
+    start "" /min /B "%~dp0%~1"
 ) else (
-    echo Audio file "%1" not found.
+    echo Audio file "%~1" not found.
 )
 exit /b 0
